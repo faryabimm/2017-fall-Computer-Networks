@@ -1,0 +1,14 @@
+working with dpkt and parsing pcap files:
+    https://jon.oberheide.org/blog/2008/10/15/dpkt-tutorial-2-parsing-a-pcap-file/
+
+
+problem with python in macOS in reading pcap files:
+    https://stackoverflow.com/questions/23523524/dpkt-invalid-tcpdump-header-error
+
+
+working with wireshark editcap command:
+    https://www.wireshark.org/docs/man-pages/editcap.html
+
+
+how to filter OSPF LS Update packets in wireshark:
+    ospf.msg.lsupdate

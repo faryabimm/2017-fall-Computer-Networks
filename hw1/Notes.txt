@@ -1,0 +1,2 @@
+Your code generated response packets correctly.
+But it had some problems. Firstly you generated log files for refused queries. Secondly when your code was picking the next server to send queries, it picked the wrong ns.

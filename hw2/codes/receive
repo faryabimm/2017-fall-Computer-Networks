@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import sys
+
+from codes import receiver
+
+
+def main():
+    receive_port = sys.argv[1]
+    receiver.Receiver(receive_port)
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        exit(0)

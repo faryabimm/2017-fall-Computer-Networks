@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+
+import random
+import sys
+
+from codes import utility
+
+MAX_DELAY = 10
+
+
+def main():
+    in_pipe = sys.argv[1]
+    out_pipe = sys.argv[2]
+
+    is_forward_middleware = len(sys.argv) > 3
+
+    if is_forward_middleware:
+        out_pipe = open(utility.get_pipes_folder_path() + out_pipe, 'wb')
+        in_pipe = open(utility.get_pipes_folder_path() + in_pipe, 'rb')
+        time_pipe = sys.argv[3]
+        time_pipe = open(utility.get_pipes_folder_path() + time_pipe, 'w')
+
+        while True:
+            try:
+                size, read_data = utility.read_pipe_blocking(in_pipe)
+            except IndexError:
+                break
+
+            for i in range(random.randrange(MAX_DELAY)):
+                utility.write_tick_pipe(time_pipe)
+                print('tick')
+
+            # if random.choice([True, False]):
+            utility.write_pipe(out_pipe, read_data)
+            print('passed data of size ' + str(size) + ' after a delay of ' + str(i - 1) + ' s')
+
+    else:  # is_backward_middleware
+        in_pipe = open(utility.get_pipes_folder_path() + in_pipe, 'rb')
+        out_pipe = open(utility.get_pipes_folder_path() + out_pipe, 'wb')
+
+        while True:
+            try:
+                _, read_data = utility.read_pipe_blocking(in_pipe)
+            except IndexError:
+                break
+            # if random.choice([True, False]):
+            utility.write_pipe(out_pipe, read_data)
+            print('passed data of size ' + str(_))
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        exit(0)
