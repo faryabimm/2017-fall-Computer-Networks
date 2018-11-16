@@ -1,4 +1,4 @@
-# TODO SUPPORT CIRCULAR INDEXES
+# TODO SUPPORT CIRCULAR INDICES
 # FIXME FIX 16 bit initial sequence number
 # TODO does it send all window when encounters timeout or triple duplicate acc?
 # TODO watch out for window size exceeding maximum window size
